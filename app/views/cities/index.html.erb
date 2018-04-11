@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ciudad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= link_to 'Ver', city %></td>
+        <td><%= link_to 'Editar', edit_city_path(city) %></td>
+        <td><%= link_to 'Borrar', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Ciudad', new_city_path %>

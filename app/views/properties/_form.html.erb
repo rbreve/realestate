@@ -1,0 +1,67 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= collection_select(:property, :category_id, Category.all, :id, :name) %>
+
+  </div>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :property_name, size: 50%>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, cols: 50, rows: 10, id: :property_description %>
+  </div>
+
+
+<div class="field">
+        <%= form.label "Departamento" %>
+     <%= collection_select(:property, :state_id, State.all, :id, :name) %>
+
+  </div>
+
+<div class="field">
+      <%= form.label "Ciudad" %>
+     <%= collection_select(:property, :city_id, City.all, :id, :name) %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label "Colonia/Barrio" %> 
+ 
+    <input class="form-control mr-sm-2" type="text" placeholder="Colonia", data-behavior="autocomplete"  id="neighborhood" name="neighborhood" value="<%= property.neighborhood %>">
+
+  </div>
+
+  <div class="field">
+    <%= form.label "Precio"%>
+
+  <%= form.select :currency, ['LPS', '$'] %>
+
+ 
+    <%= form.text_field :price, id: :property_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Habitaciones" %>
+    <%= form.text_field :rooms, id: :property_rooms %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

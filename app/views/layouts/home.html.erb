@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inverprop 2.0</title>
+    <%= csrf_meta_tags %>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div id="wrapper">
+  		<div id="header"><div id="logo"><img src="/icons/logo.png" width="160"></div> 
+
+  		<div id="info">
+  			
+  		<table>
+  			 
+  				<tr>
+  					<td><img src="/icons/phone.png" width="30"></td>
+  					<td>94029402</td>
+  				</tr>
+
+  				<tr>
+  					<td><img src="/icons/wa.png" width="30"></td>
+  					 <td>94029402</td>
+
+  				</tr>
+
+  				<tr>
+  					<td><img src="/icons/em.png" width="30"></td>
+  					  <td>inverprop@ngabrie.com</td>
+  				</tr>
+  			</tr>
+
+  		</table>
+  	</div>
+
+
+
+  	</div>
+    
+     <%= yield %>
+
+	</div>
+  </body>
+</html>

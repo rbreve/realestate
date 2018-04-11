@@ -1,0 +1,83 @@
+ 
+ <div id="menu">
+
+  <ul>
+  <% @categories.each do |category| %>
+  <li class="menuItem">
+  <%= link_to category, controller: "home", id: category %>
+  </li>
+  <%end%>
+  <li>
+  <%= link_to "Listado Completo", controller: "home" %>
+  </li>
+  </ul>
+   
+</div>
+
+
+
+<div id="showContent">
+
+<div id="showInfo">
+
+<link type="text/css" rel="stylesheet" href="/css/lightslider.css" />                  
+
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#lightSlider').lightSlider({
+        autoWidth:true,
+        loop:false,
+        item: 1,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });
+</script>
+
+ 
+<div id="titleShow"><%= @property.name %> </div>
+
+ 
+<div class="slideshow">
+ <ul id="lightSlider">
+<% @property.photos.each do |photo| %>
+ 
+  <li>
+ <%= image_tag photo.image.url(:medium), size: "700x400" %>
+ <p>  <%= photo.description %> </p>
+ </li>
+
+<% end %>
+</ul>
+</div>
+
+<div id="infoProperty">
+
+<div id="categoryShow"><%=@property.currency%>. <%=@property.price%>  </div>
+<h2><%=@property.category.name%></h2>
+<h3>Ciudad</h3> <%= @property.city.name %>
+<h3>Colonia</h3>  <%= @property.neighborhood.name %>
+<h3>Habitaciones</h3> <%= @property.rooms %>
+</div>
+
+
+
+<div id="showDescription">
+  <%= @property.description %>
+</div>
+
+ 
+ 
+
+
+
+
+ 
+
+<div>
+</div>
+</div>
+</div>
+
+

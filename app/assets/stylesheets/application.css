@@ -1,0 +1,251 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require easy-autocomplete.min
+ *= require easy-autocomplete.themes.min
+ */
+
+ body{
+ 	font-family: 'Montserrat', sans-serif;
+ 	background-color: #E1EDFA;
+ }
+
+#photoAdmin{
+	background-color: white;
+	padding: 10px;
+	width: 250px;
+	height: 330px;
+	float: left;
+	margin: 10px;
+}
+
+#showAdmin{
+	width: 80%;
+	margin: auto;
+}
+
+#addphotoform{
+	margin: auto;
+	background-color: white;
+	padding: 5px;
+	width: 30%;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#photosWrapperAdmin{
+	width: 90%;
+	overflow: hidden;
+}
+
+#addphotosubmit{
+	font-size: 18px;
+}
+
+#wrapper{
+	background-color: white;
+	overflow: hidden;
+	width: 90%;
+	
+	-webkit-box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
+	-moz-box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
+	box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
+
+	margin: auto;
+ }
+
+.propertybox{
+	width: 270px;
+	height: 350px;
+	background-color: #EFEFEF;
+	float:left;
+	margin: 10px;
+	padding:5px;
+	position: relative;
+	text-align: center;
+
+}
+
+#showPrice {
+	font-size: 20px;
+  	margin-top: 20px;
+ 	 
+  	height: 30px;
+ 	color:#F09500;
+   }
+
+#menu{
+	width: 20%;
+	float:left;
+	background-color: #FFF;
+
+}
+
+#menu li{
+	list-style: none;
+}
+
+#menu a{
+	text-decoration: none;
+}
+
+.menuItem{
+	padding: 3px;
+ }
+
+#showContent{
+	margin-left:20px;
+	width: 75%;
+	float:left;
+ 	background-color: white;
+
+}
+
+
+#showDescription{
+ 	margin-top: 10px;
+	padding: 18px;
+	border-radius: 25px;
+	 
+}
+
+#showInfo{
+	padding: 15px;
+}
+
+#showContent h1{
+ color: #1772B8;
+}
+
+#content{
+	float:left;
+	width: 76%;
+	background-color: white;
+	padding-left:20px;
+	margin-left: 20px;
+}
+
+#header{
+	width: 90%;
+	height: 120px;
+	background-color: white;
+	padding: 25px;
+
+}
+ #info{
+ 	width: 200px;
+	height: 100px;
+	position: relative;
+	float: right;
+
+}
+
+#logo{
+	widht: 150px;
+	float: left;
+	padding: 20px;
+}
+
+#propertyimg {
+  	  
+   
+ 	width: 100%;
+ 	margin-top:10px;
+
+}
+
+.propertybox img{
+		object-fit: cover;
+		   width: 250px;
+	height: 200px;
+}
+
+.propertybox h2{
+	color: #1772B8;
+	font-weight: 300; 
+	text-align: center;
+}
+
+#propertyDesc{
+	font-size: 10px;
+}
+
+#categoryName{
+	color: #F5A623;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding:5px;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+#price{
+	background-color: #1772B8;
+	height: 20px;
+	width: 90px;
+	color:white;
+	text-align: center;
+	padding:4px;
+ 	bottom: 0;
+	right: 0;
+	position: absolute;
+	font-size: 12px;
+}
+
+#details{
+	padding: 20px;
+	display: none;
+}
+
+.lightGray{
+	color:#636363;
+	font-size: 15px;
+}
+
+.slideshow{
+	width: 700px;
+}
+
+#infoProperty{
+	float: right;
+	width: 150px;
+	position: relative;
+	top: -480px;
+}
+
+#infoProperty h2{
+color: #053A63;
+}
+
+#categoryShow{
+	background-color: #F5A623;
+	padding: 20px;
+	font-size: 22px;
+	color: white;
+	border-radius: 15px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+#titleShow{
+	font-size: 40px;
+	padding-bottom: 20px;
+	color: #1772B8;
+}
+
+#lightSlider p{
+	font-size: 18px;
+}

@@ -1,0 +1,68 @@
+
+<div id="showAdmin">
+<p id="notice"><%= notice %></p>
+
+<h1>
+   
+  <%= @property.name %> ( <%= link_to 'Editar', edit_property_path(@property) %> | <a href="/home/<%=@property.id%>">Ver</a> ) 
+
+</h1>
+
+<p>
+  <strong>Descripción:</strong>
+  <div>
+  <%= @property.description %>
+</div>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @property.city.name %>
+</p>
+
+<p>
+  <strong>Barrio/Colonia:</strong>
+  <%= @property.neighborhood.name %>
+</p>
+
+<p>
+  <strong>Categoría:</strong>
+  <%= @property.category.name %>
+</p>
+
+<p>
+  <strong>Cuartos:</strong>
+  <%= @property.rooms %>
+</p>
+
+<div id="addphotoform">
+<%= form_for @photo, url: photos_path, html: { multipart: true } do |form| %>
+  <%= form.text_area :description, cols: 40, :placeholder => "Texto de Foto" %>
+  <br/>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :property_id, :value => @property.id%>
+  <p>
+  <%= form.submit "Agregar Foto", size: 20, :id => "addphotosubmit"%>
+</p>
+<% end %>
+</div>
+<h1>Fotos</h1>
+  <div id="photosWrapperAdmin">
+    
+    <% @property.photos.each do |photo| %>
+    
+    <div id="photoAdmin">
+     <%= image_tag photo.image.url(:thumb) %>
+     <p>
+       <%= photo.description %> </p>
+    <%= link_to 'Borrar Foto', photo, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    </div>
+    
+    <% end %>
+
+  </div>
+
+</div>
+
+
+

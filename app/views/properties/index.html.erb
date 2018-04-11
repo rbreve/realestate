@@ -1,0 +1,58 @@
+<style type="text/css">
+  .listTable{
+    width: 90%;
+  }
+
+
+   .listTable tr:nth-child(odd){ 
+    background: #efefef;
+  }
+
+  .listTable thead th{
+    background: #1772B8;
+    color: white;
+  }
+
+ .listTable tr:nth-child(even){ 
+    background: white;
+  }
+  .tabledesc{
+    font-size: 10px;
+  }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listado </h1>
+
+<table class="listTable">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Ciudad</th>
+      <th>Colonia</th>
+      <th>Categoria</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td width="180"><%= property.name %></td>
+        <td class="tabledesc"><%= property.description %></td>
+        <td><%= property.city %></td>
+        <td><%= property.neighborhood %></td>
+        <td><%= property.category %></td>
+        <td><%= link_to 'Ver', property %></td>
+        <td><%= link_to 'Editar', edit_property_path(property) %></td>
+        <td><%= link_to 'Borrar', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Propiedad', new_property_path %>
