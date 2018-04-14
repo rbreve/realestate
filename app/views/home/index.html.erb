@@ -1,50 +1,78 @@
- 
- <div id="menu">
 
-  <ul>
+<div class="ui grid ">
+
+<div class="four wide column ">
+
+ 
+<div class="ui vertical menu">
+
+ 
 	  <% @categories.each do |category| %>
-	  <li class="menuItem">
-	  <%= link_to category, controller: "home", id: category %>
-	  </li>
+ 
+	 <a href="/home/?id=<%=category.id%>" class="item smallfont" ><%=category.name%><div class="ui label"><%=category.properties.count%></div></a>
+
+	  
 	  <%end%>
-	  <li>
-	  <%= link_to "Listado Completo", controller: "home" %>
-	  </li>
-  </ul>
+
+	  	 <a href="/home/" class="item">Listado Completo</a>
+
+	 
+ 	
    
 </div>
 
+</div>
 
-<div id="content">
+<div class="twelve wide column">
+
 <h2>
 <%= @category %>
 </h2>
+<div class="ui link cards">
+	 <% @properties.each do |property| %>
 
- <% @properties.each do |property| %>
+	 <div class="card">
 
- 	
- 	<div class="propertybox">
- 		
- 		
- 			<div id="propertyimg">
- 		 	<%  property.photos.limit(1).each do |photo| %>
-  		 		<%= image_tag photo.image.url(:thumb) %>
- 		 	<% end %>
- 			 </div>
+		 <a class="image" href="/home/<%=property.id%>">	
 
-  			<h2><%= link_to property.neighborhood.name , :controller => "home", :id => property, :action => "show" %></h2>
+			<%  property.photos.limit(1).each do |photo| %>
+			 	<%= image_tag photo.image.url(:thumb) %>
+			<% end %>  
+		 </a>
 
- 		 	<div id="propertyDesc"><%= truncate(property.description, :length => 100)%></div>
+	  <div class="content">
+
+	    <a class="header"><%= property.category.name %></a>
+
+	    <div class="meta">
+
+	        
+	    </div>
+
+	    <div class="description">
+	 	 <%= truncate(property.description, :length => 100)%>
+	    </div>
 
 
- 		 	<div id="categoryName"><%= property.category.name %></div>
+	  </div>
 
- 		 	<div id="price"> <%=property.currency%> <%=property.price %></div>
+	  <div class="extra content">
 
+	    
+	      <i class="bed icon"></i> <%=property.rooms%> Cuartos 
+	       
+ <div class="ui top right attached label blue">  <%=property.currency%> <%=property.price %></div>
 
- 	</div>
- 	</a>
- 	 
- <% end %>
+ 
+  
+ 
+	  </div>
+
+	</div>
+	  
+
+	 <% end %>
 </div>
 
+
+</div>

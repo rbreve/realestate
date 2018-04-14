@@ -1,24 +1,3 @@
- 
- <div id="menu">
-
-  <ul>
-  <% @categories.each do |category| %>
-  <li class="menuItem">
-  <%= link_to category, controller: "home", id: category %>
-  </li>
-  <%end%>
-  <li>
-  <%= link_to "Listado Completo", controller: "home" %>
-  </li>
-  </ul>
-   
-</div>
-
-
-
-<div id="showContent">
-
-<div id="showInfo">
 
 <link type="text/css" rel="stylesheet" href="/css/lightslider.css" />                  
 
@@ -35,16 +14,39 @@
   });
 </script>
 
- 
-<div id="titleShow"><%= @property.name %> </div>
+<div class="ui grid ">
+   
+   <div class="four wide column ">
 
- 
+   
+    <div class="ui vertical menu">
+
+      <% @categories.each do |category| %>
+   
+     <a href="/home/?id=<%=category.id%>" class="item smallfont" ><%=category.name%><div class="ui label"><%=category.properties.count%></div></a>
+
+      <%end%>
+
+         <a href="/home/" class="item">Listado Completo</a>
+    </div>
+
+  </div>
+
+
+  <div class="eight wide column">
+
+     <div id="titleShow"><%= @property.name %>  <div class="ui big label blue">
+<%= @property.currency %> <%=@property.price %>
+</div> </div> 
+
+
+
 <div class="slideshow">
  <ul id="lightSlider">
 <% @property.photos.each do |photo| %>
  
   <li>
- <%= image_tag photo.image.url(:medium), size: "700x400" %>
+ <%= image_tag photo.image.url(:medium), size: "600x400" %>
  <p>  <%= photo.description %> </p>
  </li>
 
@@ -52,32 +54,41 @@
 </ul>
 </div>
 
-<div id="infoProperty">
+    <div class="ui secondary segment">
+      <p>    <%= @property.description %></p>
+    </div>
 
-<div id="categoryShow"><%=@property.currency%>. <%=@property.price%>  </div>
-<h2><%=@property.category.name%></h2>
-<h3>Ciudad</h3> <%= @property.city.name %>
-<h3>Colonia</h3>  <%= @property.neighborhood.name %>
-<h3>Habitaciones</h3> <%= @property.rooms %>
-</div>
+  </div>
 
 
+  <div class="four wide column">
 
-<div id="showDescription">
-  <%= @property.description %>
+
+<div class="ui list">
+  <div class="item">
+    <i class="map icon"></i>
+    <div class="content">
+       <%= @property.city.name %>
+    </div>
+  </div>
+  <div class="item">
+    <i class="map marker alternate icon"></i>
+    <div class="content">
+      <%= @property.neighborhood.name %>
+    </div>
+  </div>
+
+  
+
+   
 </div>
 
  
- 
+
+  </div>
 
 
 
-
- 
-
-<div>
-</div>
-</div>
 </div>
 
 

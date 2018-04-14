@@ -55,14 +55,10 @@
 
 #wrapper{
 	background-color: white;
-	overflow: hidden;
-	width: 90%;
-	
-	-webkit-box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
-	-moz-box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
-	box-shadow: 11px 10px 82px -35px rgba(0,0,0,0.75);
-
+	width: 95%;
 	margin: auto;
+	overflow: hidden;
+	 
  }
 
 .propertybox{
@@ -85,18 +81,18 @@
  	color:#F09500;
    }
 
-#menu{
+#mymenu{
 	width: 20%;
 	float:left;
 	background-color: #FFF;
 
 }
 
-#menu li{
+#mymenu li{
 	list-style: none;
 }
 
-#menu a{
+#mymenu a{
 	text-decoration: none;
 }
 
@@ -128,12 +124,18 @@
  color: #1772B8;
 }
 
-#content{
-	float:left;
-	width: 76%;
+.fr{
+	float: right;
+}
+
+#mycontent{
+	float:right;
+	width: 70%;
 	background-color: white;
 	padding-left:20px;
 	margin-left: 20px;
+	overflow: hidden;
+	background-color: #d3d3d3;
 }
 
 #header{
@@ -215,7 +217,7 @@
 }
 
 .slideshow{
-	width: 700px;
+	width: 600px;
 }
 
 #infoProperty{
@@ -248,4 +250,9 @@ color: #053A63;
 
 #lightSlider p{
 	font-size: 18px;
+}
+
+.smallfont{
+	font-size: 12px;
+
 }
