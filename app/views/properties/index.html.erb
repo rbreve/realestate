@@ -23,9 +23,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listado </h1>
 
-<table class="listTable">
+<h1>Listado <a href="/properties/new" class="ui teal labeled icon button">  <i class="add icon labeled"></i>Nueva Propiedad</a>
+ </h1>
+
+<table class="ui celled striped table">
   <thead>
     <tr>
       <th>Título</th>
@@ -45,14 +47,13 @@
         <td><%= property.city %></td>
         <td><%= property.neighborhood %></td>
         <td><%= property.category %></td>
-        <td><%= link_to 'Ver', property %></td>
-        <td><%= link_to 'Editar', edit_property_path(property) %></td>
-        <td><%= link_to 'Borrar', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', property, :class => "ui primary basic button" %>  </td>
+        <td><%= link_to 'Editar', edit_property_path(property), :class => "ui primary basic button" %></td>
+        <td><%= link_to 'Borrar', property, :class => "ui primary basic button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Agregar Propiedad', new_property_path %>
+ 

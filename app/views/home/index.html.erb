@@ -4,17 +4,17 @@
 <div class="four wide column ">
 
  
-<div class="ui vertical menu">
+<div class="ui vertical menu large">
 
  
 	  <% @categories.each do |category| %>
  
-	 <a href="/home/?id=<%=category.id%>" class="item smallfont" ><%=category.name%><div class="ui label"><%=category.properties.count%></div></a>
+	 <a href="/home/?id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
 
 	  
 	  <%end%>
 
-	  	 <a href="/home/" class="item">Listado Completo</a>
+	  	 <a href="/home/" class="item smallfont">Listado Completo <div class="ui label"><%=@properties.count%></div></a>
 
 	 
  	
@@ -23,7 +23,7 @@
 
 </div>
 
-<div class="twelve wide column">
+<div class="twelve wide column ">
 
 <h2>
 <%= @category %>

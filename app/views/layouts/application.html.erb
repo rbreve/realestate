@@ -10,9 +10,9 @@
   </head>
 
   <body>
-  	<center>
-   <%= link_to '+ Agregar Propiedad', new_property_path %>  | 	<a href="/properties/">Listado</a> | <%= link_to 'Ciudades', cities_path %>
-</center>
+   <div class="ui stackable menu">
+   <%= link_to '+ Agregar Propiedad', new_property_path, :class=>"item" %>   	<a href="/properties/" class="item">Listado</a> <a href="/categories/" class="item">Categorias</a>   <%= link_to 'Ciudades', cities_path, :class=>"item" %>
+ </div>
 
     <%= yield %>
   </body>
