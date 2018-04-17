@@ -1,4 +1,10 @@
 
+<script type="text/javascript">
+$('select.dropdown')
+  .dropdown()
+;
+</script>
+
 <div class="ui grid ">
 
 <div class="four wide column ">
@@ -24,6 +30,27 @@
 </div>
 
 <div class="twelve wide column ">
+
+
+<form class="ui form">
+	  <div class="fields">
+
+	  	<div class="four wide field ui">
+	    <%= collection_select(:property, :category_id, Category.all, :id, :name,{}, {class: "ui selection dropdown"}) %>
+		</div>
+
+		<div class="four wide field">
+	     <%= collection_select(:property, :city_id, City.all, :id, :name,{}, {class: "ui selection dropdown"}) %>
+		</div>
+
+
+		<div class="two wide field">
+		 <input type="submit" class="ui button" value="Filtrar">
+		</div>
+	</div>
+
+
+</form>
 
 <h2>
 <%= @category %>

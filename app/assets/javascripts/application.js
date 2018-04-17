@@ -16,4 +16,4 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.easy-autocomplete
-//= require lightslider
+//= require semantic-ui

@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 		@property = Property.find(params[:id])
 		@photo = Photo.new
 		@categories = Category.all()
-
+		@propertiesCount = Property.count
 	end
 
 end

@@ -1,56 +1,65 @@
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 
-<link type="text/css" rel="stylesheet" href="/css/lightslider.css" />                  
+<script type="text/javascript" src="/slick/slick.js"></script>
+
+
 
 <script type="text/javascript">
-   $(document).ready(function() {
-    $('#lightSlider').lightSlider({
-        autoWidth:true,
-        loop:false,
-        item: 1,
-        onSliderLoad: function() {
-            $('#autoWidth').removeClass('cS-hidden');
-        } 
-    });  
-  });
+$(document).ready(function(){
+
+   $('.slider').slick({
+  dots: true,
+  speed: 300,
+  slidesToShow: 3,
+variableWidth: true
+});
+  
+});
+
 </script>
 
+
 <div class="ui grid ">
-   
-   <div class="four wide column ">
 
-   
-    <div class="ui vertical menu">
+<div class="four wide column ">
 
-      <% @categories.each do |category| %>
-   
-     <a href="/home/?id=<%=category.id%>" class="item smallfont" ><%=category.name%><div class="ui label"><%=category.properties.count%></div></a>
+ 
+<div class="ui vertical menu large ">
 
-      <%end%>
+ 
+    <% @categories.each do |category| %>
+ 
+   <a href="/home/?id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
 
-         <a href="/home/" class="item">Listado Completo</a>
-    </div>
+    
+    <%end%>
 
-  </div>
+       <a href="/home/" class="item smallfont">Listado Completo <div class="ui label"><%=@propertiesCount%></div></a>
 
 
-  <div class="eight wide column">
+</div>
+
+</div>
+
+
+  <div class="ten wide column large screen only  ">
 
      <div id="titleShow"><%= @property.name %>  </div> 
 
 
 
-<div class="slideshow">
- <ul id="lightSlider">
-<% @property.photos.each do |photo| %>
- 
-  <li>
- <%= image_tag photo.image.url(:medium), size: "600x400" %>
- <p>  <%= photo.description %> </p>
- </li>
+    <div class="slider">
+    <% @property.photos.each do |photo| %>
+      <div>
+        <%= image_tag photo.image.url(:medium), :height=>400  %>
+        <div>  <%= photo.description %> </div>
+      </div>
+    <% end %>
+    </div>
 
-<% end %>
-</ul>
-</div>
+
+ 
 
     <div class="ui secondary segment">
       <p>    <%= @property.description %></p>
@@ -63,48 +72,55 @@
     <input type="text" name="first-name" placeholder="Nombre">
   </div>
  
-  <div class="field">
-  <div class="field">
+   <div class="field">
     <label>Mensaje</label>
     <textarea rows="2"></textarea>
   </div>
-  </div>
-  <button class="ui button" type="submit">Enviar</button>
+   <button class="ui button" type="submit">Enviar</button>
 </form>
 
   </div>
 
 
-  <div class="four wide column">
 
-<div class="ui big label blue">
-<%= @property.currency %> <%=@property.price %>
-</div> 
-<div class="ui list">
-  <div class="item">
-    <i class="map icon"></i>
-    <div class="content">
-       <%= @property.city.name %>
-    </div>
+
+ <div class="one column mobile only row">
+<% @property.photos.each do |photo| %>
+  <div class="ui segment">
+    <%= image_tag photo.image.url(:medium), :class => "ui fluid image"  %>
+    <div>  <%= photo.description %> </div>
   </div>
-  <div class="item">
-    <i class="map marker alternate icon"></i>
-    <div class="content">
-      <%= @property.neighborhood.name %>
-    </div>
-  </div>
-
-  
-
-   
+<% end %>
 </div>
-
  
+  <div class="one column mobile only row">
+    <p>    <%= @property.description %></p>
+     
+
+    <form class="ui form">
+       <h4 class="ui dividing header">Solicite más información</h4>
+  <div class="field">
+    <label>Nombre</label>
+    <input type="text" name="first-name" placeholder="Nombre">
+  </div>
+ 
+   <div class="field">
+    <label>Mensaje</label>
+    <textarea rows="2"></textarea>
+  </div>
+   <button class="ui button" type="submit">Enviar</button>
+</form>
+</div>
 
   </div>
 
 
 
+
+
 </div>
+
+
+
 
 
