@@ -15,7 +15,7 @@ $('select.dropdown')
  
 	  <% @categories.each do |category| %>
  
-	 <a href="/home/?id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
+	 <a href="/home/?category_id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
 
 	  
 	  <%end%>
@@ -36,11 +36,13 @@ $('select.dropdown')
 	  <div class="fields">
 
 	  	<div class="four wide field ui">
-	    <%= collection_select(:property, :category_id, Category.all, :id, :name,{}, {class: "ui selection dropdown"}) %>
+
+	  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Categoria"} %>
 		</div>
 
 		<div class="four wide field">
-	     <%= collection_select(:property, :city_id, City.all, :id, :name,{}, {class: "ui selection dropdown"}) %>
+ 
+	     	<%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name", :selected=>@city_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Ciudad"} %>
 		</div>
 
 
@@ -56,7 +58,13 @@ $('select.dropdown')
 <%= @category %>
 </h2>
 <div class="ui link cards">
+	<% if @properties.count ==0 %>
+	<div class="ui message">
+		No se encontraron resultados en su búsqueda.
+	</div>
+	<%end%>
 	 <% @properties.each do |property| %>
+
 
 	 <div class="card">
 
@@ -87,12 +95,12 @@ $('select.dropdown')
 
 	    
 	      <i class="bed icon"></i> <%=property.rooms%> Cuartos 
-	       
- <div class="ui top right attached label blue">  <%=property.currency%> <%=property.price %></div>
 
- 
-  
- 
+	      <span class="right floated">
+	      <i class="map marker alternate icon"></i> <%=property.city.name%>
+	 	 </span>
+	       
+ 	<div class="ui top right attached label blue">  <%=property.currency%> <%=property.price %></div>
 	  </div>
 
 	</div>

@@ -9,5 +9,8 @@ class Property < ApplicationRecord
 
   CURRENCY = ["Lps", "$"]
 
+  scope :category, -> (category_id) { where category_id: category_id }
+  scope :city, -> (city_id) { where city_id: city_id }
+
 end
 

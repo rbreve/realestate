@@ -1,9 +1,7 @@
-<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
+
+
 
 <script type="text/javascript" src="/slick/slick.js"></script>
-
-
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -30,7 +28,7 @@ variableWidth: true
  
     <% @categories.each do |category| %>
  
-   <a href="/home/?id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
+   <a href="/home/?category_id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
 
     
     <%end%>
@@ -61,9 +59,24 @@ variableWidth: true
 
  
 
-    <div class="ui secondary segment">
-      <p>    <%= @property.description %></p>
+    <div class="ui attached message">
+        <div class="header">
+        <%=@property.category.name%>
+        </div>
+
     </div>
+
+<div class="ui attached segment white">
+        <p>    <%= @property.description %></p>
+
+</div>
+    <div class="ui bottom attached info message">
+ <i class="bed icon"></i> <%= @property.rooms%> Cuartos 
+
+        <span class="right floated">
+        <i class="map marker alternate icon"></i> <%=@property.city.name%>
+     </span>
+</div>
 
     <form class="ui form">
        <h4 class="ui dividing header">Solicite más información</h4>
