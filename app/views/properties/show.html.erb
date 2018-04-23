@@ -35,14 +35,16 @@
   <%= @property.rooms %>
 </p>
 
-<div id="addphotoform">
-<%= form_for @photo, url: photos_path, html: { multipart: true } do |form| %>
+<div class="ui message">
+
+<%= form_for @photo, url: photos_path, html: { multipart: true, :class=>"ui form" } do |form| %>
   <%= form.text_area :description, cols: 40, :placeholder => "Texto de Foto" %>
   <br/>
-  <%= form.file_field :image %>
+  <%= form.file_field  :image, :class=>"ui button", multiple: true %>
+
   <%= form.hidden_field :property_id, :value => @property.id%>
   <p>
-  <%= form.submit "Agregar Foto", size: 20, :id => "addphotosubmit"%>
+  <%= form.submit "Agregar Foto", :class=>"ui button",  size: 20, :id => "addphotosubmit" %>
 </p>
 <% end %>
 </div>
@@ -53,10 +55,21 @@
     
     <div id="photoAdmin">
      <%= image_tag photo.image.url(:thumb) %>
-     <p>
-       <%= photo.description %> </p>
+     
+
+<%= form_with(model: photo,:class=>"ui form" ) do |f| %>
+    <%= f.text_field :description %>
+    <%= f.submit "Guardar Cambio", :class=>"ui button" %>
+  <% end %>
+
     <%= link_to 'Borrar Foto', photo, method: :delete, data: { confirm: 'Are you sure?' } %> 
+
+
+  
     </div>
+
+
+
     
     <% end %>
 

@@ -17,20 +17,26 @@ class PhotosController < ApplicationController
   	end
 
  	def create
- 		@photo = Photo.new(photo_params)
+
+ 		params[:photo][:image].each { |img|
+ 			 @photo = Photo.new()
+ 			 @photo.image = img
+ 			 @photo.property_id = params[:photo][:property_id]
+ 			 @photo.save
+ 		}
  		
- 		@property = Property.find(@photo.property_id)
+ 		@property = Property.find(params[:photo][:property_id])
+
 		respond_to do |format|
-		if @photo.save
 			format.html { redirect_to @property, notice: 'Foto fue agregada con exito' }
 			format.json { render :show, status: :created, location: @property }
-		else
-			format.html { render :new }
-			format.json { render json: @property.errors, status: :unprocessable_entity }
-		end
+		 end
     end
-
- 	end
+	 
+	def update
+	  @photo.update!(photo_params)
+	  render json: @photo
+	end
 
 	private
 

@@ -18,7 +18,7 @@ variableWidth: true
 </script>
 
 
-<div class="ui grid ">
+<div class="ui grid container ">
 
 <div class="four wide column ">
 
@@ -60,22 +60,33 @@ variableWidth: true
  
 
     <div class="ui attached message">
+
+<div class="ui top right attached label blue"><%=@property.currency%> <%= number_with_precision(@property.price, precision: 2) %></div>
         <div class="header">
-        <%=@property.category.name%>
+          <h3>
+        <%=@property.category.name%></h3 >
         </div>
 
     </div>
 
 <div class="ui attached segment white">
+
+
         <p>    <%= @property.description %></p>
 
 </div>
     <div class="ui bottom attached info message">
+
  <i class="bed icon"></i> <%= @property.rooms%> Cuartos 
 
         <span class="right floated">
         <i class="map marker alternate icon"></i> <%=@property.city.name%>
      </span>
+    
+
+     
+    
+
 </div>
 
     <form class="ui form">

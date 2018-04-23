@@ -5,109 +5,104 @@ $('select.dropdown')
 ;
 </script>
 
-<div class="ui grid ">
+<div class="ui grid containerx">
 
-<div class="four wide column ">
-
- 
-<div class="ui vertical menu large">
-
- 
-	  <% @categories.each do |category| %>
- 
-	 <a href="/home/?category_id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
-
-	  
-	  <%end%>
-
-	  	 <a href="/home/" class="item smallfont">Listado Completo <div class="ui label"><%=@properties.count%></div></a>
+	<div class="four wide column ">
 
 	 
- 	
-   
-</div>
+		<div class="ui vertical menu large">
+			 <% @categories.each do |category| %>
+		 
+			 <a href="/home/?category_id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
 
-</div>
+			  <%end%>
+
+			  <a href="/home/" class="item smallfont">Listado Completo <div class="ui label"><%=@properties.count%></div></a>
+		</div>
+
+	</div>
 
 <div class="twelve wide column ">
 
 
-<form class="ui form">
-	  <div class="fields">
+	<form class="ui form">
+		  <div class="fields">
 
-	  	<div class="four wide field ui">
+		  	<div class="four wide field ui">
 
-	  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Categoria"} %>
+		  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => true , :class => "ui selection dropdown"} %>
+			</div>
+
+			<div class="four wide field">
+	 
+		     	<%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name", :selected=>@city_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Ciudad"} %>
+			</div>
+
+
+			<div class="two wide field">
+			 <input type="submit" class="ui button" value="Filtrar">
+			</div>
 		</div>
 
-		<div class="four wide field">
- 
-	     	<%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name", :selected=>@city_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Ciudad"} %>
-		</div>
-
-
-		<div class="two wide field">
-		 <input type="submit" class="ui button" value="Filtrar">
-		</div>
-	</div>
-
-
-</form>
+	</form>
 
 <h2>
 <%= @category %>
 </h2>
-<div class="ui link cards">
-	<% if @properties.count ==0 %>
-	<div class="ui message">
-		No se encontraron resultados en su búsqueda.
+
+	<div class="ui link cards">
+		<% if @properties.count ==0 %>
+		<div class="ui message">
+			No se encontraron resultados en su búsqueda.
+		</div>
+		<%end%>
+		 <% @properties.each do |property| %>
+
+
+		 <div class="card">
+
+			 <a class="image" href="/home/<%=property.id%>">	
+
+				<%  property.photos.limit(1).each do |photo| %>
+				 	<%= image_tag photo.image.url(:thumb) %>
+				<% end %>  
+			 </a>
+
+		  <div class="content">
+
+		    <a class="header"><%= property.category.name %></a>
+
+		    <div class="meta">
+
+		        
+		    </div>
+
+		    <div class="description">
+		 	 <%= truncate(property.description, :length => 100)%>
+		    </div>
+
+
+		  </div>
+
+		  <div class="extra content">
+
+		    
+		      <i class="bed icon"></i> <%=property.rooms%> Cuartos 
+
+		      <span class="right floated">
+		      <i class="map marker alternate icon"></i> <%=property.city.name%>
+		 	 </span>
+		       
+	 	<div class="ui top right attached label blue">  <%=property.currency%> <%= number_with_precision(property.price, precision: 2) %>
+	 	</div>
+
+		  </div>
+
+		</div>
+		  
+
+		 <% end %>
 	</div>
-	<%end%>
-	 <% @properties.each do |property| %>
 
-
-	 <div class="card">
-
-		 <a class="image" href="/home/<%=property.id%>">	
-
-			<%  property.photos.limit(1).each do |photo| %>
-			 	<%= image_tag photo.image.url(:thumb) %>
-			<% end %>  
-		 </a>
-
-	  <div class="content">
-
-	    <a class="header"><%= property.category.name %></a>
-
-	    <div class="meta">
-
-	        
-	    </div>
-
-	    <div class="description">
-	 	 <%= truncate(property.description, :length => 100)%>
-	    </div>
-
-
-	  </div>
-
-	  <div class="extra content">
-
-	    
-	      <i class="bed icon"></i> <%=property.rooms%> Cuartos 
-
-	      <span class="right floated">
-	      <i class="map marker alternate icon"></i> <%=property.city.name%>
-	 	 </span>
-	       
- 	<div class="ui top right attached label blue">  <%=property.currency%> <%=property.price %></div>
-	  </div>
-
-	</div>
-	  
-
-	 <% end %>
 </div>
-
-
 </div>
