@@ -1,16 +1,11 @@
 
-<script type="text/javascript">
-$('select.dropdown')
-  .dropdown()
-;
-</script>
 
-<div class="ui grid containerx">
+<div class="ui grid stackable">
 
 	<div class="four wide column ">
 
 	 
-		<div class="ui vertical menu large">
+		<div class="ui vertical menu large" style="margin-left:30px;">
 			 <% @categories.each do |category| %>
 		 
 			 <a href="/home/?category_id=<%=category.id%>" class="item smallfont " ><%=category.name%><div class="ui label blue"><%=category.properties.count%></div></a>
@@ -22,20 +17,18 @@ $('select.dropdown')
 
 	</div>
 
-<div class="twelve wide column ">
-
-
+<div class="twelve wide column">
 	<form class="ui form">
 		  <div class="fields">
 
-		  	<div class="four wide field ui">
+		  	<div class="six wide field ui">
 
-		  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => true , :class => "ui selection dropdown"} %>
+		  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => "Categoria" , :class => "ui selection dropdown"}%>
 			</div>
 
 			<div class="four wide field">
 	 
-		     	<%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name", :selected=>@city_id),  { :include_blank => true , :class => "ui selection dropdown", :prompt => "Ciudad"} %>
+		     	<%= select_tag "city_id", options_from_collection_for_select(City.all, "id", "name", :selected=>@city_id),  { :include_blank => "Ciudad" , :class => "ui selection dropdown", :prompt => "Ciudad"} %>
 			</div>
 
 
@@ -43,14 +36,13 @@ $('select.dropdown')
 			 <input type="submit" class="ui button" value="Filtrar">
 			</div>
 		</div>
-
 	</form>
 
 <h2>
 <%= @category %>
 </h2>
 
-	<div class="ui link cards">
+	<div class="ui cards">
 		<% if @properties.count ==0 %>
 		<div class="ui message">
 			No se encontraron resultados en su búsqueda.
@@ -59,46 +51,39 @@ $('select.dropdown')
 		 <% @properties.each do |property| %>
 
 
-		 <div class="card">
+		 <div class="ui  card">
 
-			 <a class="image" href="/home/<%=property.id%>">	
+		 	<a class="image" href="/home/<%=property.id%>">	
 
-				<%  property.photos.limit(1).each do |photo| %>
-				 	<%= image_tag photo.image.url(:thumb) %>
-				<% end %>  
-			 </a>
+		 		<%  property.photos.limit(1).each do |photo| %>
+		 		<%= image_tag photo.image.url(:thumb) %>
+		 		<% end %>  
+		 	</a>
 
-		  <div class="content">
+		 	<div class="content">
 
-		    <a class="header"><%= property.category.name %></a>
+		 		<a class="header" href="/home/<%=property.id%>"><%= property.category.name %></a>
 
-		    <div class="meta">
-
-		        
-		    </div>
-
-		    <div class="description">
-		 	 <%= truncate(property.description, :length => 100)%>
-		    </div>
+		 		<div class="description">
+		 			<%= truncate(property.description, :length => 100)%>
+		 		</div>
 
 
-		  </div>
+		 	</div>
 
-		  <div class="extra content">
+		 	<div class="extra content">
 
-		    
-		      <i class="bed icon"></i> <%=property.rooms%> Cuartos 
 
-		      <span class="right floated">
-		      <i class="map marker alternate icon"></i> <%=property.city.name%>
-		 	 </span>
-		       
-	 	<div class="ui top right attached label blue">  <%=property.currency%> <%= number_with_precision(property.price, precision: 2) %>
-	 	</div>
+		 		<i class="bed icon"></i> <%=property.rooms%> Cuartos 
 
-		  </div>
+		 		<span class="right floated"><i class="map marker alternate icon"></i> <%=property.city.name%></span>
 
-		</div>
+		 		<div class="ui top right attached label blue">  <%=property.currency%> <%= number_with_precision(property.price, precision: 2) %>
+		 		</div>
+
+		 	</div>
+
+		 </div>
 		  
 
 		 <% end %>
@@ -106,3 +91,10 @@ $('select.dropdown')
 
 </div>
 </div>
+
+
+<script type="text/javascript">
+$('select.dropdown')
+  .dropdown()
+;
+</script>

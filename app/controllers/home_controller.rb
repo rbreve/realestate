@@ -7,8 +7,9 @@ class HomeController < ApplicationController
 		@properties = Property.where(nil)
 
 		@properties = @properties.category(params[:category_id]) if @category_id
-		@properties = @properties.city(params[:city_id]) if @city_id
-		@category = Category.find(params[:category_id]) if @category_id
+		@properties = @properties.city(params[:city_id]) if params[:city_id].present?
+
+		@category = Category.find(params[:category_id]) if params[:category_id].present?
 
 		 
 		@categories = Category.all()
@@ -16,6 +17,7 @@ class HomeController < ApplicationController
 	end
 
 	def show
+		@message = Message.new
 		@property = Property.find(params[:id])
 		@photo = Photo.new
 		@categories = Category.all()

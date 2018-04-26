@@ -1,63 +1,53 @@
-
 <%= semantic_flash %>
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Inverprop 2.0</title>
+    <title>Inverprop Bienes Raices 2.0</title>
     <%= csrf_meta_tags %>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-
-
+ 
   <body>
   	 
-     <div class="ui grid container" >
 
-    <div class="two wide column">
-        <div >
-          <a href="/">
-          <img src="/icons/logo.png" width="160">
-        </a>
-        </div> 
+    <div class="ui grid stackable">
+
+      <div class="four wide column center aligned">
+        <a href="/"><img src="/icons/logo.png" width="160"></a>
       </div>
 
+      <div class="ten wide column  center aligned">
+        
 
-        <div class="ten wide column"></div>
+         <div class="ui horizontal list " style="margin-top:20px;">
 
-      	<div id="info">
-      			
-      		<table>
-      				<tr>
-      					<td><img src="/icons/phone.png" width="30"></td>
-      					<td>94029402</td>
-      				</tr>
+          <a class="item " >
+            <i class="icon mail"></i> inverprop@ngabrie.com
+          </a>
 
-      				<tr>
-      					<td><img src="/icons/wa.png" width="30"></td>
-      					 <td>94029402</td>
+          <a class="item">
+            <i class="icon whatsapp"></i> +(504) 9402-9402
+          </a>
 
-      				</tr>
+          <a class="item">
+            <i class="phone icon"></i> +(504) 2221-0870
+          </a>
 
-      				<tr>
-      					<td><img src="/icons/em.png" width="30"></td>
-      					  <td>inverprop@ngabrie.com</td>
-      				</tr>
-      		</table>
+        </div>
+       </div>
 
-      	</div>
-      </div>
+    </div>
 
-   </div>
+ 
 
      <%= yield %>
-<p></p>
-	    <div class="ui inverted vertical footer segment">
+ 
+	 <div class="ui inverted vertical footer segment">
+
     <div class="ui container">
       <div class="ui  inverted divided equal  stackable grid">
         <div class="nine wide column ">

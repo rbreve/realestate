@@ -1,4 +1,14 @@
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=25455072353&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 <script type="text/javascript" src="/slick/slick.js"></script>
@@ -18,12 +28,12 @@ variableWidth: true
 </script>
 
 
-<div class="ui grid container ">
+<div class="ui grid  ">
 
-<div class="four wide column ">
+<div class="four wide column  ">
 
  
-<div class="ui vertical menu large ">
+<div class="ui vertical menu large" style="margin-left:30px;">
 
  
     <% @categories.each do |category| %>
@@ -41,10 +51,10 @@ variableWidth: true
 </div>
 
 
-  <div class="ten wide column large screen only  ">
+  <div class="ten wide column large screen only">
 
      <div id="titleShow"><%= @property.name %>  </div> 
-
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 
 
     <div class="slider">
@@ -88,21 +98,27 @@ variableWidth: true
     
 
 </div>
-
-    <form class="ui form">
+<form class="ui form" action=<%=messages_path%> method="POST">
        <h4 class="ui dividing header">Solicite más información</h4>
+
+
   <div class="field">
     <label>Nombre</label>
-    <input type="text" name="first-name" placeholder="Nombre">
+    <input type="text" name="message[name]" placeholder="Nombre">
+  </div>
+
+   <div class="field">
+    <label>Email</label>
+    <input type="text" name="message[email]" placeholder="E-mail">
   </div>
  
    <div class="field">
     <label>Mensaje</label>
-    <textarea rows="2"></textarea>
+    <textarea rows="2" name="message[body]"></textarea>
   </div>
+
    <button class="ui button" type="submit">Enviar</button>
 </form>
-
   </div>
 
 
@@ -118,22 +134,30 @@ variableWidth: true
 </div>
  
   <div class="one column mobile only row">
-    <p>    <%= @property.description %></p>
+    <p>     <%= @property.description %></p>
      
-
-    <form class="ui form">
+<%= form_for @message, url: messages_path, html: {  :class=>"ui form" } do |form| %>
+<%= csrf_meta_tags %>
        <h4 class="ui dividing header">Solicite más información</h4>
+
+
   <div class="field">
     <label>Nombre</label>
-    <input type="text" name="first-name" placeholder="Nombre">
+    <input type="text" name="message[name]" placeholder="Naaaombre">
+  </div>
+
+   <div class="field">
+    <label>Email</label>
+    <input type="text" name="message[email]" placeholder="E-mail">
   </div>
  
    <div class="field">
     <label>Mensaje</label>
-    <textarea rows="2"></textarea>
+    <textarea rows="2" name="message[body]"></textarea>
   </div>
+
    <button class="ui button" type="submit">Enviar</button>
-</form>
+<%end%>
 </div>
 
   </div>
