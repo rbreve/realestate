@@ -1,7 +1,6 @@
 class MessageMailer < ApplicationMailer
-	def contact
-		@user = params[:message]
-		 
-		mail(to: @message.email, subject: 'Interes en Propiedad', )
+	def contact(message)
+		@message = message
+		mail(to: "rbreve@gmail.com", subject: 'Interes en Propiedad', )
 	end
 end

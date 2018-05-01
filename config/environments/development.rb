@@ -12,6 +12,19 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.action_mailer.delivery_method = :sendmail
+config.action_mailer.perform_deliveries = true
+
+config.action_mailer.smtp_settings = {
+  address:              '',
+  port:                 25,
+  domain:               '',
+  user_name:            '',
+  password:             '',
+enable_starttls_auto: false,
+  authentication:       'plain'
+}
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true

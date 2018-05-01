@@ -71,11 +71,11 @@ Cities.each do |name|
 	City.create(name: name)
 end
 
-# Departamentos.each do |name|
-# 	State.create(name: name)
-# end
+Departamentos.each do |name|
+ 	State.create(name: name)
+end
 
-# Categories.each do |name|
-# 	Category.create(name: name)
-# end
+Categories.each do |name|
+ 	Category.create(name: name)
+end
 
