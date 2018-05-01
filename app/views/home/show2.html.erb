@@ -1,4 +1,5 @@
- 
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 
 <div id="fb-root"></div>
 
@@ -10,10 +11,22 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
- 
 
-<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+<script type="text/javascript" src="/slick/slick.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+   $('.slider').slick({
+  dots: true,
+  speed: 300,
+  slidesToShow: 3,
+variableWidth: true
+});
+  
+});
+
+</script>
 
 
 <div class="ui grid  ">
@@ -45,12 +58,12 @@
 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 
 
-    <div class="fotorama" data-nav="thumbs" data-width="800" data-height="600">
-
+    <div class="slider">
     <% @property.photos.each do |photo| %>
-   
-        <img src="<%=photo.image.url%>" data-caption="<%=photo.description%>">
-
+      <div>
+        <%= image_tag photo.image.url(:medium), :height=>400  %>
+        <div>  <%= photo.description %> </div>
+      </div>
     <% end %>
     </div>
 
@@ -131,7 +144,7 @@
 
   <div class="field">
     <label>Nombre</label>
-    <input type="text" name="message[name]" placeholder="Nombre">
+    <input type="text" name="message[name]" placeholder="Naaaombre">
   </div>
 
    <div class="field">

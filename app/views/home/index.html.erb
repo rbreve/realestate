@@ -48,12 +48,13 @@
 			No se encontraron resultados en su búsqueda.
 		</div>
 		<%end%>
+
 		 <% @properties.each do |property| %>
 
 
 		 <div class="ui  card">
 
-		 	<a class="image" href="/home/<%=property.id%>">	
+		 	<a class="image" href="/home/<%=property.id%>" >	
 
 		 		<%  property.photos.limit(1).each do |photo| %>
 		 		<%= image_tag photo.image.url(:thumb) %>
@@ -78,7 +79,7 @@
 
 		 		<span class="right floated"><i class="map marker alternate icon"></i> <%=property.city.name%></span>
 
-		 		<div class="ui top right attached label blue">  <%=property.currency%> <%= number_with_precision(property.price, precision: 2) %>
+		 		<div class="ui top right attached label blue">    <%= number_to_currency(property.price, precision: 2, unit: property.currency, format: "%u %n") %>
 		 		</div>
 
 		 	</div>
