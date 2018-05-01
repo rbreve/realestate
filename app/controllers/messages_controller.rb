@@ -7,14 +7,9 @@ class MessagesController < ApplicationController
 
 	def create
 		@message = Message.new message_params
-		if @message.valid?
 			MessageMailer.contact(@message).deliver_now
-			redirect_to new_message_url
-			flash[:notice] = "Hemos recibido su mensaje, estaremos en contacto pronto."
-		else
 			redirect_to root_path
-			flash[:notice] = "There was an error sending your message. Please try again."
-		end
+			flash[:notice] = "Hemos recibido su mensaje, estaremos en contacto pronto."
 	end
 
 	private
