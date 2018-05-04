@@ -3,6 +3,16 @@
 <html>
 
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1368775-11"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1368775-11');
+</script>
+
     <title>Inverprop Bienes Raices 2.0</title>
     <%= csrf_meta_tags %>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
@@ -46,19 +56,18 @@
 
      <%= yield %>
  
-	 <div class="ui inverted vertical footer segment">
-
-    <div class="ui container">
-      <div class="ui  inverted divided equal  stackable grid">
-        <div class="nine wide column ">
+ <div class="ui segment center aligned blue inverted">
            Inverprop Bienes Raices, Todos Los Derechos Reservados
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
+ 
+</div>
+
+	 
+ 
 
 
   </body>
 </html>
+
+
+
+

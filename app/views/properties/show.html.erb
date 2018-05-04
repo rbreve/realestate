@@ -38,13 +38,12 @@
 <div class="ui message">
 
 <%= form_for @photo, url: photos_path, html: { multipart: true, :class=>"ui form" } do |form| %>
-  <%= form.text_area :description, cols: 40, :placeholder => "Texto de Foto" %>
   <br/>
-  <%= form.file_field  :image, :class=>"ui button", multiple: true %>
+  <%= form.file_field  :image, :class=>"ui button", multiple: true, accept: 'image/png,image/jpeg' %>
 
   <%= form.hidden_field :property_id, :value => @property.id%>
   <p>
-  <%= form.submit "Agregar Foto", :class=>"ui button",  size: 20, :id => "addphotosubmit" %>
+  <%= form.submit "Subir Fotos", :class=>"ui button",  size: 20, :id => "addphotosubmit" %>
 </p>
 <% end %>
 </div>
