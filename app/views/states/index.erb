@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Status</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= link_to 'Ver', s %></td>
+        <td><%= link_to 'Editar', edit_state_path(s) %></td>
+        <td><%= link_to 'Borrar', s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Status', new_state_path %>

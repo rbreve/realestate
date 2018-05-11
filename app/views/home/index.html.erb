@@ -21,7 +21,7 @@
 	<form class="ui form">
 		  <div class="fields">
 
-		  	<div class="six wide field ui">
+		  	<div class="four wide field ui">
 
 		  <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name", :selected=>@category_id),  { :include_blank => "Categoria" , :class => "ui selection dropdown"}%>
 			</div>
@@ -78,6 +78,11 @@
 		 		<i class="bed icon"></i> <%=property.rooms%> Cuartos 
 
 		 		<span class="right floated"><i class="map marker alternate icon"></i> <%=property.city.name%></span>
+
+			<% if property.state%>
+			<div class="ui top left attached label orange">     <%= property.state  %> 
+		 		</div>
+		 		<%end%>
 
 		 		<div class="ui top right attached label blue">    <%= number_to_currency(property.price, precision: 2, unit: property.currency, format: "%u %n") %>
 		 		</div>

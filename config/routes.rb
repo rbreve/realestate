@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :neighborhoods
   resources :categories
   resources :cities
+  resources :states
   resources :properties
   resources :photos
   resources :home, only: [:show, :index]

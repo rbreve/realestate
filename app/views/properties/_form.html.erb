@@ -31,7 +31,7 @@
 
 
 <div class="field">
-        <%= form.label "Departamento" %>
+        <%= form.label "Status" %>
      <%= collection_select(:property, :state_id, State.all, :id, :name) %>
 
   </div>
@@ -71,7 +71,7 @@
 
 
   <div class="actions">
-     <input type="submit" class="ui button" value="Agregar">
+     <input type="submit" class="ui button" value="Ok">
   </div>
 <% end %>
 
