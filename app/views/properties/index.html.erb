@@ -1,22 +1,5 @@
 <style type="text/css">
-  .listTable{
-    width: 90%;
-  }
-
-
-   .listTable tr:nth-child(odd){ 
-    background: #efefef;
-  }
-
-  .listTable thead th{
-    background: #1772B8;
-    color: white;
-  }
-
- .listTable tr:nth-child(even){ 
-    background: white;
-  }
-  .tabledesc{
+   .tabledesc{
     font-size: 10px;
   }
 </style>
@@ -57,4 +40,7 @@
 </table>
 
 </div>
+
+<%= will_paginate @properties %>
+
  

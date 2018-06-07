@@ -3,6 +3,7 @@ class StatesController < ApplicationController
 
 	def index
 		@states = State.all
+    @state = State.new
 	end
 
 	  # GET /cities/new

@@ -1,8 +1,9 @@
-<h1>Editing Property</h1>
-<div class="ui container">
 
+<div class="ui container">
+<h1>Editar propiedad</h1>
 <%= render 'form', property: @property %>
 
+<%= render 'photos', property: @property %>
 
 <%= link_to 'Show', @property %> |
 <%= link_to 'Back', properties_path %>

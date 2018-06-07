@@ -1,8 +1,11 @@
+<div class="ui  centered grid">
+  <div class="six wide column">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Status</h1>
+<h1>Status </h1>
 
-<table>
+<table class="ui celled striped table" style="width:50%;">
   <thead>
     <tr>
       <th>Status</th>
@@ -14,8 +17,6 @@
     <% @states.each do |s| %>
       <tr>
         <td><%= s.name %></td>
-        <td><%= link_to 'Ver', s %></td>
-        <td><%= link_to 'Editar', edit_state_path(s) %></td>
         <td><%= link_to 'Borrar', s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +25,30 @@
 
 <br>
 
-<%= link_to 'Agregar Status', new_state_path %>
+ 
+ <%= form_with(model: @state, local: true) do |form| %>
+  <% if @state.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this state from being saved:</h2>
+
+      <ul>
+      <% @state.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Status" %>
+    <%= form.text_field :name, id: :state_name %>  <%= form.submit "Agregar" %>
+  </div>
+
+    
+   
+   
+<% end %>
+
+
+</div>
+</div>

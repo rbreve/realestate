@@ -1,0 +1,22 @@
+<h1>Fotos</h1>
+  <div id="photosWrapperAdmin">
+    
+    <% property.photos.each do |photo| %>
+    
+    <div id="photoAdmin">
+     <%= image_tag photo.image.url(:thumb) %>
+     
+
+  <%= form_with(model: photo,:class=>"ui form" ) do |f| %>
+    <%= f.text_field :description %>
+    <%= f.submit "Guardar Cambio", :class=>"ui button" %>
+  <% end %>
+
+    <%= link_to 'Borrar Foto', photo, method: :delete, data: { confirm: 'Are you sure?' } %> 
+ 
+    </div>
+ 
+    
+    <% end %>
+
+  </div>

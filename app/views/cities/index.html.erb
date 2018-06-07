@@ -1,8 +1,13 @@
+<div class="ui  centered grid">
+  <div class="six wide column">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Cities</h1>
+<h1>Ciudades <a href="/cities/new" class="ui teal labeled icon button">  <i class="add icon labeled"></i>Agregar Ciudad</a></h1>
+</h1>
 
-<table>
+<table class="ui celled striped table">
+ 
   <thead>
     <tr>
       <th>Ciudad</th>
@@ -14,7 +19,6 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= city.name %></td>
-        <td><%= link_to 'Ver', city %></td>
         <td><%= link_to 'Editar', edit_city_path(city) %></td>
         <td><%= link_to 'Borrar', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -24,4 +28,24 @@
 
 <br>
 
-<%= link_to 'Agregar Ciudad', new_city_path %>
+ <%= form_with(model: @city, local: true) do |form| %>
+  <% if @city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this state from being saved:</h2>
+
+      <ul>
+      <% @city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Ciudad" %>
+    <%= form.text_field :name, id: :city_name %>  <%= form.submit "Agregar" %>
+  </div>
+<%end%>
+</div>
+</div>
+

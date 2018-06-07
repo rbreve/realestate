@@ -47,6 +47,7 @@
 </p>
 <% end %>
 </div>
+
 <h1>Fotos</h1>
   <div id="photosWrapperAdmin">
     
@@ -56,7 +57,7 @@
      <%= image_tag photo.image.url(:thumb) %>
      
 
-<%= form_with(model: photo,:class=>"ui form" ) do |f| %>
+  <%= form_with(model: photo,:class=>"ui form" ) do |f| %>
     <%= f.text_field :description %>
     <%= f.submit "Guardar Cambio", :class=>"ui button" %>
   <% end %>

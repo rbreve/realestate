@@ -1,11 +1,14 @@
+<div class="ui  centered grid">
+  <div class="six wide column">
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1>Categorias  
+<a href="/categories/new" class="ui teal labeled icon button">  <i class="add icon labeled"></i>Nueva Categoria</a></h1>
 
-<table>
+<table class="ui celled striped table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Categoria</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +17,8 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_category_path(category) %></td>
+        <td><%= link_to 'Borrar', category, method: :delete, data: { confirm: 'Esta Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+</div>
+</div>

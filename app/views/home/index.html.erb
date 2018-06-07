@@ -13,7 +13,15 @@
 			  <%end%>
 
 			  <a href="/home/" class="item smallfont">Listado Completo <div class="ui label"><%=@properties.count%></div></a>
+	
+		<%= form_tag("/", method: :get, :class=>"ui form")  do %>
+		<%= text_field_tag(:term,'', size: 10)%>
+		 <div class="mini ui submit button teal fluid"><i class="search icon"></i>Buscar</div>
+		<% end %>
+		
 		</div>
+
+	
 
 	</div>
 
@@ -73,7 +81,6 @@
 		 	</div>
 
 		 	<div class="extra content">
-
 
 		 		<i class="bed icon"></i> <%=property.rooms%> Cuartos 
 
