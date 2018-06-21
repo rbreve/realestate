@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @properties = Property.search(params[:term], params[:page])
+    @term = params[:term]
   end
 
   # GET /properties/1
@@ -21,6 +22,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    @photo = Photo.new
   end
 
   # POST /properties

@@ -11,7 +11,21 @@
 <h1>Listado <a href="/properties/new" class="ui teal labeled icon button">  <i class="add icon labeled"></i>Nueva Propiedad</a>
  </h1>
 
+<div class="ui  centered grid">
+  <div class="six wide column">
+<%= form_tag("./", method: :get, :class=>"ui form")  do %>
+    <%= text_field_tag(:term,'', size: 10)%>
+     <div class="fluid mini ui submit button teal "><i class="search icon"></i>Buscar</div>
+    <% end %>
+</div>
+</div>
+
+<% if @term %>
+ Resultados de la busqueda <strong><%=@term%></strong>
+<%end%>
+
 <table class="ui celled striped table">
+
   <thead>
     <tr>
       <th>Título</th>
@@ -26,12 +40,17 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td width="180"><%= property.name %></td>
+        <td width="180"><%= property.name %>
+          <% if property.state%>
+        <% if property.state.name != "Normal" %>
+        <div class="ui  horizontal label orange"><%= property.state  %></div>
+        <%end%>
+      <%end%> </td>
         <td class="tabledesc"><%= property.description %></td>
         <td><%= property.city %></td>
         <td><%= property.neighborhood %></td>
         <td><%= property.category %></td>
-        <td><%= link_to 'Ver', property, :class => "ui primary basic button" %>  </td>
+        <td><%= link_to 'Fotos', property, :class => "ui primary basic button" %>  </td>
         <td><%= link_to 'Editar', edit_property_path(property), :class => "ui primary basic button" %></td>
         <td><%= link_to 'Borrar', property, :class => "ui primary basic button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

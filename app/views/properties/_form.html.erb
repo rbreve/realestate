@@ -32,7 +32,7 @@
 
 <div class="field">
         <%= form.label "Status" %>
-     <%= collection_select(:property, :state_id, State.all, :id, :name) %>
+     <%= collection_select(:property, :state_id, State.all, :id, :name, :include_blank => true)  %>
 
   </div>
 
@@ -71,7 +71,7 @@
 
 
   <div class="actions">
-     <input type="submit" class="ui button" value="Ok">
+     <input type="submit" class="ui button teal" value="Guardar Cambios">
   </div>
 <% end %>
 

@@ -17,12 +17,8 @@
 		<%= form_tag("/", method: :get, :class=>"ui form")  do %>
 		<%= text_field_tag(:term,'', size: 10)%>
 		 <div class="mini ui submit button teal fluid"><i class="search icon"></i>Buscar</div>
-		<% end %>
-		
+		<% end %> 
 		</div>
-
-	
-
 	</div>
 
 <div class="twelve wide column">
@@ -87,11 +83,12 @@
 		 		<span class="right floated"><i class="map marker alternate icon"></i> <%=property.city.name%></span>
 
 			<% if property.state%>
-			<div class="ui top left attached label orange">     <%= property.state  %> 
-		 		</div>
+				<% if property.state != "normal" %>
+				<div class="ui top left attached label orange"><%= property.state  %></div>
 		 		<%end%>
+		 	<%end%>
 
-		 		<div class="ui top right attached label blue">    <%= number_to_currency(property.price, precision: 2, unit: property.currency, format: "%u %n") %>
+		 		<div class="ui top right attached label blue"><%= number_to_currency(property.price, precision: 2, unit: property.currency, format: "%u %n") %>
 		 		</div>
 
 		 	</div>
