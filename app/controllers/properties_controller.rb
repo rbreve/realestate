@@ -13,6 +13,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     @photo = Photo.new
+    @photos  = @property.photos.order(:sort)
   end
 
   # GET /properties/new

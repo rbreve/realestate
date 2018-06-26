@@ -1,3 +1,8 @@
+<script type="text/javascript">
+$(function() {
+  $('.sortable').railsSortable();
+});
+</script>
 
 <div id="showAdmin">
 <p id="notice"><%= notice %></p>
@@ -53,24 +58,33 @@
 <h1>Fotos</h1>
   <div id="photosWrapperAdmin">
     
-    <% @property.photos.each do |photo| %>
-    
-    <div id="photoAdmin">
-     <%= image_tag photo.image.url(:thumb) %>
+<table class="ui table collapsing"  >
+
+
+  <tbody class="sortable"> 
+    <% @photos.each do |photo| %>
+      <tr id = "<%=photo.sortable_id%>" class="six wide"> 
+        <td>
+          <%= image_tag photo.image.url(:thumb) %>
+         
+
+      <%= form_with(model: photo,:class=>"ui form" ) do |f| %>
+        <%= f.text_field :description, :size=>10 %>
+        <%= f.submit "Guardar Cambio", :class=>"ui button tiny" %>
+                <span><%= link_to 'Borrar', photo, method: :delete, data: { confirm: 'Are you sure?' } %> </span>
+
+      <% end %>
+        
      
-
-  <%= form_with(model: photo,:class=>"ui form" ) do |f| %>
-    <%= f.text_field :description %>
-    <%= f.submit "Guardar Cambio", :class=>"ui button" %>
-  <% end %>
-
-    <%= link_to 'Borrar Foto', photo, method: :delete, data: { confirm: 'Are you sure?' } %> 
- 
-    </div>
+        
+      </td>
+      </tr>
+        
  
     
     <% end %>
-
+ </tbody>
+    </table>
   </div>
 
 </div>

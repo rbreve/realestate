@@ -22,6 +22,8 @@ class HomeController < ApplicationController
 		@photo = Photo.new
 		@categories = Category.all()
 		@propertiesCount = Property.count
+		@photos  = @property.photos.order(:sort)
+
 	end
 
 end

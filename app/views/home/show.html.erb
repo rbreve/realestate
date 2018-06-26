@@ -57,7 +57,7 @@
 
     <div class="fotorama" data-nav="thumbs" data-width="800" data-height="600">
 
-    <% @property.photos.each do |photo| %>
+    <% @photos.each do |photo| %>
    
         <img src="<%=photo.image.url%>" data-caption="<%=photo.description%>">
 
